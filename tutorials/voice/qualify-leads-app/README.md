@@ -1,6 +1,6 @@
 # Qualify leads application sample
 
-This directory contains samples related to Java SDK tutorials: [qualify leads](https://developers.sinch.com/docs/voice/tutorials/qualify-leads/python)
+This directory contains samples related to Python SDK tutorials: [qualify leads](https://developers.sinch.com/docs/voice/tutorials/qualify-leads/python)
 
 ## DISCLAIMER
 
