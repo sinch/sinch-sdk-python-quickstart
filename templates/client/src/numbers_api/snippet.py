@@ -26,10 +26,10 @@ def execute(sinch_client):
 # You extract the logic and place it inside the `execute` function like so:
 #
 # def execute(sinch_client):
-#    available_regions = sinch_client.numbers.regions.list(
-#        number_types=["MOBILE"]
-#    )
+#     available_regions = sinch_client.numbers.regions.list(
+#         number_types=["MOBILE"]
+#     )
 #
-#    print("Available regions:\n")
-#    for region in available_regions.iterator():
-#        print(region)
+#     print("Available regions:\n")
+#     for region in available_regions.iterator():
+#         print(region)

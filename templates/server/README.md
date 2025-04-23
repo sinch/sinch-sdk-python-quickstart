@@ -13,7 +13,7 @@ to process incoming webhooks.
 ## Configuration
 
 1. **Environment Variables**:  
-   Edit the [config.ini](config.ini) file, adding your credentials from the Sinch dashboard under the Access Keys section.
+   Edit the [.env](.env) file, adding your credentials from the Sinch dashboard under the Access Keys section.
    - To use [Numbers](https://developers.sinch.com/docs/numbers/) you need to fill the following variables 
    with the values from your Sinch account:
    ``` 
@@ -22,7 +22,7 @@ to process incoming webhooks.
      - SINCH_KEY_SECRET=Your Sinch Key Secret associated to your Sinch Access Key
    ```
    - Server Port
-   Define the port your server will listen on:
+   Define the port your server will listen on (default: 3001):
    ```
      - SERVER_PORT=3001
    ```
@@ -52,7 +52,7 @@ to process incoming webhooks.
  ``` bash
    pip install -e .
  ```
-4. Update the `config.ini` file with your configuration (see above).
+4. Update the `.env` file with your configuration (see above).
 5. Start the server:
   - `python server.py`  
 Or run it directly from your IDE.

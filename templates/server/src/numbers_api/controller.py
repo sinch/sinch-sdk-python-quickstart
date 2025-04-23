@@ -5,6 +5,7 @@ class NumbersController:
     def __init__(self, sinch_client, webhooks_secret):
         self.sinch_client = sinch_client
         self.webhooks_secret = webhooks_secret
+        self.logger = self.sinch_client.configuration.logger
 
     def numbers_event(self):
         headers = dict(request.headers)
@@ -18,12 +19,13 @@ class NumbersController:
         )
 
         if not valid_auth:
+            self.logger.warning('Invalid authentication header')
             return Response(status=401)
         else:
-            print('Valid authentication header')
+            self.logger.info('Valid authentication header')
 
         event = webhooks_service.parse_event(body_str)
 
-        print(event)
+        self.logger.info(f'Received event: {event}')
 
         return Response(status=200)

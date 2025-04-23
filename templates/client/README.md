@@ -15,7 +15,7 @@ Before you being, ensure you have:
 To configure the client application:
 
 1. **Environment Variables**:  
-   Edit the [config.ini](config.ini) file, adding your credentials from the Sinch dashboard under the Access Keys section.
+   Edit the [.env](.env) file, adding your credentials from the Sinch dashboard under the Access Keys section.
    - To use [Numbers](https://developers.sinch.com/docs/numbers/) you need to fill the following variables with the values from your Sinch account:
      ``` 
        [CREDENTIALS]
@@ -52,7 +52,7 @@ To configure the client application:
  ```
    pip install -e .
  ```
-4. Ensure your `config.ini` file have been updated as described above.
+4. Ensure your `.env` file have been updated as described above.
 5. Run the application:
   - `python app.py`  
   Or run it directly from your IDE.

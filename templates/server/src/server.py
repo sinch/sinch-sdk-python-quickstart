@@ -1,13 +1,18 @@
+import logging
 from flask import Flask, request
 from templates.server.src.numbers_api.controller import NumbersController
 from templates.utils import get_sinch_client, load_config
 
 app = Flask(__name__)
 
-config = load_config()
-port = int(config.get("SERVER_PORT") or 3001)
-webhooks_secret = config.get("NUMBERS_WEBHOOKS_SECRET")
+config = load_config('server')
+port = int(config.get('SERVER_PORT') or 3001)
+webhooks_secret = config.get('NUMBERS_WEBHOOKS_SECRET')
 sinch_client = get_sinch_client(config)
+
+# Set up logging at INFO level
+logging.basicConfig()
+sinch_client.configuration.logger.setLevel(logging.INFO)
 
 numbers_controller = NumbersController(sinch_client, webhooks_secret)
 

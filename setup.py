@@ -6,6 +6,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         # TODO: Add 'sinch' after v2.0 release.
+        "dotenv",
         "flask"
     ],
     python_requires=">=3.9",

@@ -1,48 +1,35 @@
-import os
-import configparser
 from pathlib import Path
 from sinch import SinchClient
+from dotenv import dotenv_values
 
 
-def load_config():
+def load_config(env_dir: str) -> dict[str, str]:
     """
-    Load configuration from config.ini file in the root directory.
-    Returns a dictionary of configuration values.
+    Load configuration from .env file in the specified directory.
+
+    Args:
+        env_dir (str): The directory containing the .env file (relative to project root)
+
+    Returns:
+        dict[str, str]: Dictionary containing configuration values
     """
-    project_root = Path(__file__).resolve().parent.parent.parent
-    env_file = project_root / 'config.ini'
+    project_root = Path(__file__).resolve().parent.parent
+    env_file = project_root / env_dir / '.env'
 
     if not env_file.exists():
-        raise FileNotFoundError(f"Could not find config.ini file in the root directory: {env_file}")
+        raise FileNotFoundError(f"Could not find .env file in directory: {env_file}")
 
-    config = configparser.ConfigParser()
-    config.read(env_file)
-
-    config_dict = {}
-    for section in config.sections():
-        for key, value in config.items(section):
-            config_dict[key.upper()] = value
+    config_dict = dotenv_values(env_file)
 
     return config_dict
 
 
-def get_property(property_name: str) -> str:
-    """
-    Get a property from environment variables.
-
-    Args:
-        property_name: Name of the property to retrieve
-
-    Returns:
-        str: Property value or empty string if not found
-    """
-    return os.environ.get(property_name) or ''
-
-
-def get_sinch_client(config) -> SinchClient:
+def get_sinch_client(config: dict) -> SinchClient:
     """
     Create and return a configured SinchClient instance.
 
+    Args:
+        config (dict): Dictionary containing configuration values
     Returns:
         SinchClient: Configured Sinch client instance
     """
