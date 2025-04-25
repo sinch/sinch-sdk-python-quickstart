@@ -3,21 +3,18 @@ from sinch import SinchClient
 from dotenv import dotenv_values
 
 
-def load_config(env_dir: str) -> dict[str, str]:
+def load_config() -> dict[str, str]:
     """
-    Load configuration from .env file in the specified directory.
-
-    Args:
-        env_dir (str): The directory containing the .env file (relative to project root)
+    Load configuration from the .env file in the server directory.
 
     Returns:
         dict[str, str]: Dictionary containing configuration values
     """
     project_root = Path(__file__).resolve().parent.parent
-    env_file = project_root / env_dir / '.env'
+    env_file = project_root / '.env'
 
     if not env_file.exists():
-        raise FileNotFoundError(f"Could not find .env file in directory: {env_file}")
+        raise FileNotFoundError(f"Could not find .env file in server directory: {env_file}")
 
     config_dict = dotenv_values(env_file)
 

@@ -1,11 +1,12 @@
 # Replace the code below with any snippet from:
 # https://github.com/sinch/sinch-sdk-python-snippets
 def execute(sinch_client):
-    print("Snippet execution: Numbers service")
+    logger = sinch_client.configuration.logger
+    logger.info("Snippet execution: Numbers service")
 
 
 # Example usage:
-# Let's say you're using the snippet from  snippets/available_regions/list/snippet.py:
+# Let's say you're using the snippet from snippets/available_regions/list/snippet.py:
 #
 # from sinch import SinchClient
 #

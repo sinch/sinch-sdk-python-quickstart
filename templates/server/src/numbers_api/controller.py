@@ -1,4 +1,5 @@
 from flask import request, Response
+from templates.server.src.numbers_api.server_business_logic import handle_numbers_event
 
 
 class NumbersController:
@@ -19,13 +20,11 @@ class NumbersController:
         )
 
         if not valid_auth:
-            self.logger.warning('Invalid authentication header')
+            self.logger.error('Invalid authentication header')
             return Response(status=401)
-        else:
-            self.logger.info('Valid authentication header')
 
         event = webhooks_service.parse_event(body_str)
 
-        self.logger.info(f'Received event: {event}')
+        handle_numbers_event(numbers_event=event, logger=self.logger)
 
         return Response(status=200)
