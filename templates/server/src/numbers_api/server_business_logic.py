@@ -3,10 +3,9 @@ from sinch.domains.numbers.webhooks.v1.events.numbers_webhooks_event import Numb
 
 def handle_numbers_event(numbers_event: NumbersWebhooksEvent, logger):
     """
-    Handle a Numbers event.
+    This method handles a Numbers event.
     Args:
         numbers_event (NumbersWebhooksEvent): The Numbers event data.
         logger (logging.Logger, optional): Logger instance for logging. Defaults to None.
     """
-    if logger:
-        logger.info(f'Handling Numbers event:\n{numbers_event.model_dump_json(indent=2)}')
+    logger.info(f'Handling Numbers event:\n{numbers_event.model_dump_json(indent=2)}')

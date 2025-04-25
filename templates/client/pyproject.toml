@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "sinch-sdk-python-quickstart-client"
+version = "0.1.0"
+description = "Sinch SDK Python Quickstart Client"
+readme = "README.md"
+packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+python-dotenv = "^1.0.0"
+# sinch = "^2.0.0"  # Uncomment once v2.0 is released
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

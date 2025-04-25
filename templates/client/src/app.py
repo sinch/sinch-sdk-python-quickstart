@@ -1,6 +1,6 @@
 import logging
-from templates.client.src.numbers_api.numbers_quickstart import NumbersQuickstart
-from templates.client.src.sinch_client_helper import get_sinch_client, load_config
+from numbers_api.numbers_quickstart import NumbersQuickstart
+from sinch_client_helper import get_sinch_client, load_config
 
 
 def main():

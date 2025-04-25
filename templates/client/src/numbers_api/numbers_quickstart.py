@@ -1,4 +1,4 @@
-from templates.client.src.numbers_api.snippet import execute
+from .snippet import execute
 
 
 class NumbersQuickstart:

@@ -10,8 +10,11 @@ def load_config() -> dict[str, str]:
     Returns:
         dict[str, str]: Dictionary containing configuration values
     """
-    project_root = Path(__file__).resolve().parent.parent
-    env_file = project_root / '.env'
+    # Get the directory where this file is located
+    current_dir = Path(__file__).resolve().parent
+    # Go up one level to the server directory
+    server_dir = current_dir.parent
+    env_file = server_dir / '.env'
 
     if not env_file.exists():
         raise FileNotFoundError(f"Could not find .env file in server directory: {env_file}")
